@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Hero from '../components/home/hero';
 import Features from '../components/home/features';
 import SecondHero from '../components/home/secondHero';

@@ -78,7 +78,7 @@ const LoginComponent = () => {
 
         <div className='text-center mt-6'>
           <p className='text-gray-600'>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <a href='/register' className='text-[#1b4285] font-medium'>
               Register now
             </a>
