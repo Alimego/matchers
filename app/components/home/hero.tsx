@@ -16,14 +16,14 @@ const Hero = () => {
               Connect with like-minded entrepreneurs in a secure environment to
               bring your vision to life.
             </p>
-            <div className='flex gap-3 sm:gap-5 w-full sm:w-auto'>
+            <div className='flex items-center justify-center md:justify-start gap-3 sm:gap-5 w-full sm:w-auto'>
               <Link href={'/login'}>
-                <button className='bg-white text-[#1b4285] hover:bg-gray-300 hover:text-[#1b4285] border border-white font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer w-full sm:w-auto'>
+                <button className='text-xs md:text-base bg-white text-[#1b4285] hover:bg-gray-300 hover:text-[#1b4285] border border-white font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer w-full sm:w-auto'>
                   Find a Cofounder
                 </button>
               </Link>
               <Link href={'/register'}>
-                <button className='bg-transparent hover:bg-[#374b6d] border border-white font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer w-full sm:w-auto'>
+                <button className='text-xs md:text-base bg-transparent hover:bg-[#374b6d] border border-white font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer w-full sm:w-auto'>
                   Create Profile
                 </button>
               </Link>
