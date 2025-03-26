@@ -1,7 +1,41 @@
-import React from 'react';
-import { HiMail, HiArrowRight } from 'react-icons/hi';
+'use client';
+import axiosInstance from '@/app/utils/axiosInstance';
+import React, { useState } from 'react';
+import { toast } from 'sonner';
+import { HiMail, HiArrowRight, HiCheckCircle, HiXCircle } from 'react-icons/hi';
 
 const Newsletter = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const data = { email: inputValue };
+      const response = await axiosInstance.post('/subscribe', data, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
+
+      toast.success(response.data.message || 'Successfully subscribed!', {
+        icon: <HiCheckCircle className='text-green-500 w-6 h-6' />,
+      });
+
+      setInputValue('');
+    } catch (error: any) {
+      const errorMsg =
+        error.response?.data?.message ||
+        'Something went wrong. Please try again.';
+
+      toast.error(errorMsg, {
+        icon: <HiXCircle className='text-red-500 w-6 h-6' />,
+      });
+    }
+  };
+
   return (
     <section className='py-10 md:py-20 px-4 md:px-12 lg:px-24 bg-white'>
       <div className='container mx-auto'>
@@ -21,10 +55,15 @@ const Newsletter = () => {
             </div>
           </div>
 
-          <form className='flex flex-col sm:flex-row mb-4 sm:mb-6'>
+          <form
+            className='flex flex-col sm:flex-row mb-4 sm:mb-6'
+            onSubmit={handleSubmit}
+          >
             <div className='flex-grow relative mb-2 sm:mb-0'>
               <input
                 type='email'
+                value={inputValue}
+                onChange={handleChange}
                 placeholder='Your email address'
                 className='w-full px-4 md:px-5 py-3 md:py-4 border border-gray-200 rounded-xl sm:rounded-r-none focus:outline-none focus:border-[#1b4285] text-base md:text-lg'
                 required

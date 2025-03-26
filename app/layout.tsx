@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_Georgian } from 'next/font/google';
+import { Toaster } from 'sonner';
 import './globals.css';
 
 const georgian = Noto_Sans_Georgian({
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${georgian.className} antialiased`}>{children}</body>
+      <body className={`${georgian.className} antialiased`}>
+        <Toaster position='top-right' richColors />
+        {children}
+      </body>
     </html>
   );
 }

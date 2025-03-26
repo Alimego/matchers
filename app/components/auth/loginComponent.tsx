@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import GoogleIcon from '@/app/assets/googleIcon';
 
 const LoginComponent = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -60,20 +59,6 @@ const LoginComponent = () => {
 
         <Button className='w-full h-12 bg-[#1b4285] text-white font-medium rounded-lg'>
           Log in
-        </Button>
-
-        <div className='relative flex items-center my-4'>
-          <div className='flex-grow border-t border-gray-200'></div>
-          <span className='flex-shrink mx-4 text-gray-400'>or</span>
-          <div className='flex-grow border-t border-gray-200'></div>
-        </div>
-
-        <Button
-          variant='outline'
-          className='w-full h-12 flex items-center justify-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50'
-        >
-          <GoogleIcon />
-          <span className='text-gray-700'>Continue with Google</span>
         </Button>
 
         <div className='text-center mt-6'>
